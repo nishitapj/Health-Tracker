@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Health Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="logo">💙 Health Tracker</h2>
+      <nav>
+        <button class="nav-btn" onclick="showSection('dashboard')">Dashboard</button>
+        <button class="nav-btn" onclick="showSection('add-entry')">Add Entry</button>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="dashboard">
+        <h2>Overview</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Steps (Week)</h3>
+            <p id="week-steps">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Water (Week)</h3>
+            <p id="week-water">0 L</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Sleep (Week)</h3>
+            <p id="week-sleep">0 hrs</p>
+          </div>
+        </div>
+
+        <h2>Trends</h2>
+        <div class="chart-grid">
+          <div><canvas id="stepsChart"></canvas></div>
+          <div><canvas id="waterChart"></canvas></div>
+          <div><canvas id="sleepChart"></canvas></div>
+        </div>
+
+        <h2>Health Suggestions</h2>
+        <div id="suggestions" class="suggestions-box">Loading...</div>
+
+        <h2>Your Records</h2>
+        <div id="records"></div>
+      </section>
+
+      <section id="add-entry" style="display:none">
+        <h2>Add Entry</h2>
+        <div class="form-box">
+          <input id="date" type="date" />
+          <input id="steps" type="number" placeholder="Steps" />
+          <input id="water" type="number" placeholder="Water (L)" />
+          <input id="sleep" type="number" placeholder="Sleep (hrs)" />
+          <button id="btnAdd">Add Entry</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSu8fY62jeEKQJPU_snaCTOmWk305Ntb4",
+      authDomain: "healthtracker-c481a.firebaseapp.com",
+      projectId: "healthtracker-c481a",
+      storageBucket: "healthtracker-c481a.firebasestorage.app",
+      messagingSenderId: "435599055304",
+      appId: "1:435599055304:web:59d4c69fc286414f7588fd",
+    };
+
+    window.firebaseApp = initializeApp(firebaseConfig);
+    window.db = getFirestore(firebaseApp);
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
