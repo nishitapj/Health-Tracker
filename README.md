@@ -29,6 +29,3 @@ A simple cloud-based health tracking web application where users can record dail
 1. Clone this repository  
 ```bash
 git clone https://github.com/nishitapj/Health-Tracker.git
-Open in browser
-
-http://localhost:3000
