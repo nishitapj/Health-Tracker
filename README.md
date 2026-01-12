@@ -1,4 +1,4 @@
-# 🩺 Health-Tracker  
+# ⚡ VitalSync 
 
 A simple cloud-based health tracking web application where users can record daily health activities and visualize their progress using charts and summaries.
 
