@@ -9,27 +9,33 @@
 </head>
 
 <body>
+
   <div class="layout">
-    <aside class="sidebar">
-      <h2 class="logo">💙 Health Tracker</h2>
+    <header class="top-nav">
+      <h1 class="logo">💙 Health Tracker</h1>
       <nav>
         <button class="nav-btn" onclick="showSection('dashboard')">Dashboard</button>
+        <button class="nav-btn" onclick="showSection('records-section')">Your Records</button>
         <button class="nav-btn" onclick="showSection('add-entry')">Add Entry</button>
       </nav>
-    </aside>
+    </header>
 
     <main class="content">
+
       <section id="dashboard">
         <h2>Overview</h2>
+
         <div class="stats-grid">
           <div class="stat-card">
             <h3>Total Steps (Week)</h3>
             <p id="week-steps">0</p>
           </div>
+
           <div class="stat-card">
             <h3>Total Water (Week)</h3>
             <p id="week-water">0 L</p>
           </div>
+
           <div class="stat-card">
             <h3>Total Sleep (Week)</h3>
             <p id="week-sleep">0 hrs</p>
@@ -43,9 +49,10 @@
           <div><canvas id="sleepChart"></canvas></div>
         </div>
 
-        <h2>Health Suggestions</h2>
-        <div id="suggestions" class="suggestions-box">Loading...</div>
+      </section>
 
+      <!-- Your Records Section -->
+      <section id="records-section" style="display:none">
         <h2>Your Records</h2>
         <div id="records"></div>
       </section>
@@ -60,10 +67,11 @@
           <button id="btnAdd">Add Entry</button>
         </div>
       </section>
+
     </main>
   </div>
 
-  <!-- Firebase SDK -->
+  <!-- Firebase -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -81,7 +89,8 @@
     window.db = getFirestore(firebaseApp);
   </script>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
+
 </body>
 
 </html>
